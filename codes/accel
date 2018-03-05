@@ -1,0 +1,79 @@
+#!/usr/bin/perl -w
+
+$ldeg = 80.808355; # galactic longitude in degrees, Goldsbury et al
+$bdeg = 54.281682; # galactic latitude in degrees, Goldsbury et al
+$dkpc = 1.0;  # distance in kpc  # Grundahl, Stetson & Andersen 2002
+$mumasyr = 8.55; # proper motion in mas/yur 
+$p = 1.00000 / 24.4289793809236; # period in sec
+$fdotobs = -1.62263e-17;
+$pb = 8.6340050964 * 86400; 
+$pdotobs = 2.71839191763874e-20;
+
+$r0kpc = 8.34;    # distance to galactic center in kpc, Reid et al 2014
+$thetakms = 240; # galactic rotation velocity, km/s, Reid et al 2014
+
+$b = $bdeg*3.141592653589793/180.;
+$l = $ldeg*3.141592653589793/180.;
+$r0 = $r0kpc * 3.085e21 / 2.99792458e10;   # convert from kpc to lt-sec
+$dsec = $dkpc * 3.085e21 / 2.99792458e10;  # convert from kpc to lt-sec
+$theta = $thetakms / 2.997925e5;   # convert km/s to dimensionless
+$mu = $mumasyr*1.536e-16; # convert mas/yr to rad/s
+
+
+# disk acceleration
+
+$z = $dkpc * sin($b);
+$azc = - 1.08e-19 * (1.25*$z/sqrt($z*$z+0.0324)+0.58*$z);
+$zaccel = $azc * sin($b);
+
+# differential rotation accceleration
+
+$beta=($dkpc/$r0kpc)*cos($b)-cos($l);
+$adotn = -cos($b)*($theta*$theta/$r0)*(cos($l)+$beta/(sin($l)**2+$beta**2));
+$draccel = $adotn;
+
+# proper motion acceleration
+
+$pmaccel = $mu*$mu*$dsec;
+
+$totaccel = $zaccel + $draccel + $pmaccel;
+
+printf "\n";
+printf "Inputs:\n";
+printf "  spin period:   %9.5f sec\n",$p;
+printf "  distance:      %9.5f kpc     %10.5e lt-sec\n",$dkpc,$dsec;
+printf "  proper motion: %9.5f mas/yr  %10.5e rad/sec\n",$mumasyr,$mu;
+printf "  galactic lat:  %9.5f deg     %10.5e rad\n",$bdeg,$b;
+printf "  galactic long: %9.5f deg     %10.5e rad\n",$ldeg,$l;
+printf "Assumptions:\n";
+printf "  gal ctr dist   %9.5f kpc     %10.5e lt-sec\n",$r0kpc,$r0;
+printf "  rot velocity   %9.5f km/s    %10.5e lt-sec/sec\n",$thetakms,$theta;
+printf "Intermediate calculations:\n";
+printf "  z-height       %9.5f kpc\n",$z;
+printf "  beta           %9.5f\n",$beta;
+printf "Results (p-dot/p bias):\n";
+printf "  disk acceleration     %20.10f x 10^-21\n", $zaccel*1.e21;
+printf "  rotation acceleration %20.10f x 10^-21\n", $draccel*1.e21;
+printf "  proper motion accel   %20.10f x 10^-21\n", $pmaccel*1.e21;
+printf "  total acceleration    %20.10f x 10^-21\n", $totaccel*1.e21;
+printf "Results (delta p-dot = p-dot_observed - p-dot_intrinsic):\n";
+printf "  disk acceleration     %20.10f x 10^-21\n", $zaccel*1.e21*$p;
+printf "  rotation acceleration %20.10f x 10^-21\n", $draccel*1.e21*$p;
+printf "  proper motion accel   %20.10f x 10^-21\n", $pmaccel*1.e21*$p;
+printf "  total acceleration    %20.10f x 10^-21\n", $totaccel*1.e21*$p;
+printf "  intrinsic pdot        %20.10f x 10^-21\n", ($pdotobs-$totaccel*$p)*1.e21;
+printf "Results (delta f-dot):\n";
+printf "  disk acceleration     %20.10f x 10^-16\n", -$zaccel*1.e16/$p;
+printf "  rotation acceleration %20.10f x 10^-16\n", -$draccel*1.e16/$p;
+printf "  proper motion accel   %20.10f x 10^-16\n", -$pmaccel*1.e16/$p;
+printf "  total acceleration    %20.10f x 10^-16\n", -$totaccel*1.e16/$p;
+printf "  intrinsic fdot        %20.10f x 10^-16\n", ($fdotobs-$totaccel/$p)*1.e16;
+if ($pb>0) {
+printf "Results (delta p-b-dot):\n";
+  printf "  disk acceleration     %20.10f x 10^-14\n", $zaccel*1.e14*$pb;
+  printf "  rotation acceleration %20.10f x 10^-14\n", $draccel*1.e14*$pb;
+  printf "  proper motion accel   %20.10f x 10^-14\n", $pmaccel*1.e14*$pb;
+  printf "  total acceleration    %20.10f x 10^-14\n", $totaccel*1.e14*$pb;
+}
+printf "\n";
+
