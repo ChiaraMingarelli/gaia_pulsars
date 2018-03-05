@@ -1,0 +1,3 @@
+FORMAT 1
+INCLUDE tims/PPTA.J0437-4715.dr1e.cut.tim 
+#INCLUDE tims/PPTA.J0437-4715.20cm.cut.tim

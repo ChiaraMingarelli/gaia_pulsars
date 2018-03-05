@@ -1,0 +1,5 @@
+FORMAT 1 
+INCLUDE tims/EPTA.J1857+0943.tim
+INCLUDE tims/NANOGrav.J1857+0943.dfg+12.tim
+INCLUDE tims/PPTA.J1857+0943.dr1e.cut.tim
+INCLUDE tims/1857.kaspi.tim 

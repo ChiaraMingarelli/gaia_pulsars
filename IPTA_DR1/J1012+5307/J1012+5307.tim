@@ -1,0 +1,3 @@
+FORMAT 1 
+INCLUDE tims/EPTA.J1012+5307.cut.tim
+INCLUDE tims/NANOGrav.J1012+5307.dfg+12.tim

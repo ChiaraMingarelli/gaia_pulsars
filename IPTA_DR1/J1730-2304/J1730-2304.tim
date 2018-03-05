@@ -1,0 +1,3 @@
+FORMAT 1 
+INCLUDE tims/EPTA.J1730-2304.cut.tim
+INCLUDE tims/PPTA.J1730-2304.dr1e.cut.tim

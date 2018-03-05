@@ -1,0 +1,5 @@
+FORMAT 1 
+INCLUDE tims/EPTA.J1939+2134.tim
+INCLUDE tims/NRT.DDS.1400.tim
+INCLUDE tims/PPTA.J1939+2134.dr1e.tim
+INCLUDE tims/Kaspi.tim

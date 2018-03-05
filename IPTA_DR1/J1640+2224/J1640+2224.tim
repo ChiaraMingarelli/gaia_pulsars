@@ -1,0 +1,3 @@
+FORMAT 1 
+INCLUDE tims/EPTA.J1640+2224.cut.tim
+INCLUDE tims/NANOGrav.J1640+2224.dfg+12.tim
