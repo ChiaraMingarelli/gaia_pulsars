@@ -1,0 +1,111 @@
+\documentclass[iop,apj]{emulateapj}
+
+%\documentclass{aastex}
+\usepackage{natbib}
+\usepackage{amsmath,amssymb}
+\usepackage{apjfonts}
+\usepackage{xspace}
+\usepackage{rotating}
+%\usepackage[max]{morefloats}
+\usepackage[usenames]{color}
+\usepackage{color}
+
+\newcommand{\cm}{\textbf}
+
+\usepackage[plainpages=false, colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false]{hyperref}
+\citestyle{apj}
+
+
+\shorttitle{Pulsar distances from GAIA}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+
+\newcommand{\tgw}{t_\mathrm{gw}}
+\newcommand{\fgw}{f_\mathrm{gw}}
+\newcommand{\thard}{t_\mathrm{h}}
+
+
+\begin{document}
+
+\title{Parallax Distance Measurements to seven binary Millisecond Pulsars from GAIA DR2}
+ 
+\author{
+Chiara~M.~F.~Mingarelli\altaffilmark{1, $\dagger$} , 
+Lauren Anderson\altaffilmark{1},
+Megan Bedell\altaffilmark{1},
+David N. Spergel\altaffilmark{1,2}
+}
+
+\altaffiltext{$\dagger$}{cmingarelli@flatironinstitute.org}
+\affil{$^{1}$ Center for Computational Astrophysics, Flatiron Institute, 162 5th Ave, New York, NY 10010, USA}
+\affil{$^{2}$ Department of Astrophysical Sciences, Princeton University, Peyton Hall, Princeton, NJ 08544-0010, USA}
+
+
+\begin{abstract}
+We report parallax distance measurements to seven binary millisecond pulsars -- white dwarf systems. The distance measurements from GAIA DR2 are to the white dwarfs, and are [[CONSISTENT/INCONSISTENT]] with dispersion measure estimates from current galactic electron density models. We compare the GAIA DR2 distance measurements to other reported parallax distance measurements where available and find them to be [[CONSISTENT/INCONSISTENT]].
+\end{abstract}
+
+\keywords{
+Gravitational waves --
+Pulsars:~general --
+White Dwarfs:~general --
+}
+
+\section{Introduction}
+\label{sec:intro}
+Millisecond pulsars are some of the best clocks known, and as such, are used in a wide variety of physics experiments ranging from test of dark matter to gravitational-wave (GW) detection.
+
+\section{Results}
+We report parallax distance measurements to pulsars .... . Of these,  J1804-2717,  J1955+2908 ,  J2033+1734 had previously unknown parallax distance measurements. With these measurements, and together with the dispersion measure from pulsar timing experiments, we can now report the electron number density in the line-of-sight to these pulsars for the first time,
+\beq
+n_e = \frac{DM}{D}\, ,
+\eeq
+where ``DM'' is the dispersion measure, and ``D'' is the distance to the binary pulsar system. These three new measurements can in turn be used to update the galactic electron density model~\cite{cl02,cl03, ymw+17}
+\begin{table*}[h]
+\begin{center}
+\caption{\label{tab:results} Summary of results. *1024 has several issues with its distance measurement which we should discuss. We can also compare distance measurements between the Yao et al. 2017 model and the more famous NE 2001 model. Dispersion measures were reported in \cite{v+16} and references therein.}
+\begin{tabular}{@{\;\;}l@{\;\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}c@{\;}}
+\hline\hline
+Pulsar 		& DM (cm$^{-3}$pc)		& $D_{DM}$, NE 2001 (pc) & $D_\pi$ (pc) & $D_\pi$, GAIA (pc) & Pulsar $\mu$ (mas/yr) 	& GAIA $\mu$ (mas/yr)& Ref\\
+\hline
+J0437-4715 	& 2.64  	& DM dist 			& $156.3^{+1.3}_{-1.3}$ 	&TBD			 	&	141.29 $\pm$ 0.06 	&  YYYY 	&	\cite{v+16, dvt+08, dcl+16}\\
+ J1012+5307 	& 9.02	& DM Dist			& $1150^{+240}_{-240}$	&TBD				&	25.615 $\pm$ 0.010	&		& 	\cite{v+16, dcl+16}\\
+ J1024-0719* 	& 6.49	& DM Dist			& $1300^{+600}_{-300}$	&TBD				&	59.72 $\pm$ 0.06	&		& 	\cite{v+16, kkn+16, dcl+16}\\
+ J1804-2717 	& 24.67	& 780			& -					&TBD				&	17.3 $\pm$ 2.4		&		& 	\cite{v+16, dcl+16}\\
+ J1910+1256 	& 38.06	& DM Dist			& $550^{+460}_{-460}$	&TBD				&	7.37 $\pm$ 0.15	&		&	\cite{v+16, dcl+16}\\
+ J1955+2908 	&104.58	& 4640			& -					&TBD				&	4.75 $\pm$ 0.26	&		& 	\cite{v+16, dcl+16}\\
+ J2033+1734 	& 25.08	& 2000			& -					&TBD				&	10.8 $\pm$ 0.7		&		& 	\cite{v+16, dcl+16}\\
+ \hline \hline
+ \end{tabular}
+\end{center}
+\end{table*}
+%
+
+\section{Discussion}
+
+
+
+\acknowledgements
+
+\emph{Acknowledgments.}
+The authors thank Yuri Levin, Adrian Price-Whelan, Stephen Feeney (and likely others) for useful conversations.
+
+
+
+
+\bibliographystyle{apj}
+\bibliography{apjjabb,bib}
+
+
+\end{document}
+
+
+
+
