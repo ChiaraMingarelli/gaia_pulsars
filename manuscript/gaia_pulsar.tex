@@ -1,14 +1,16 @@
 \documentclass[iop,apj]{emulateapj}
 
+\usepackage{subfigure}
 %\documentclass{aastex}
 \usepackage{natbib}
 \usepackage{amsmath,amssymb}
-\usepackage{apjfonts}
-\usepackage{xspace}
-\usepackage{rotating}
+%\usepackage{apjfonts}
+%\usepackage{xspace}
+%\usepackage{rotating}
 %\usepackage[max]{morefloats}
-\usepackage[usenames]{color}
-\usepackage{color}
+%\usepackage[usenames]{color}
+%\usepackage{color}
+\usepackage{graphicx}
 
 \newcommand{\cm}{\textbf}
 
@@ -49,7 +51,7 @@ David N. Spergel\altaffilmark{1,2}
 
 
 \begin{abstract}
-We report parallax distance measurements to seven binary millisecond pulsars -- white dwarf systems: J0437-4715, J1012+5307, J1024-0719, J1804-2717, J1910+1256, J1955+2908 and J2033+1734. The distance measurements from GAIA DR2 are to the white dwarfs, and are [[CONSISTENT/INCONSISTENT]] with dispersion measure estimates from current galactic electron density models. We compare the GAIA DR2 distance measurements to other reported parallax distance measurements where available and find them to be [[CONSISTENT/INCONSISTENT]]. We also report the electron number density in the direction of pulsars J1804-2717, J1955+2908, J2033+1734, which can be used to update galactic electron density models.
+We report parallax distance measurements to seven binary millisecond pulsars -- white dwarf systems: J0437-4715, J1012+5307, J1024-0719, J1804-2717, J1910+1256, J1955+2908 and J2033+1734, using GAIA DR2 data. The distance measurements from GAIA DR2 are to the white dwarfs, and are [[CONSISTENT/INCONSISTENT]] with dispersion measure estimates from current galactic electron density models. We compare the GAIA DR2 distance measurements to other reported parallax distance measurements where available and find them to be [[CONSISTENT/INCONSISTENT]]. We also report the electron number density in the direction of pulsars J1804-2717, J1955+2908, J2033+1734, which can be used to update galactic electron density models.
 \end{abstract}
 
 \keywords{
@@ -60,33 +62,64 @@ White Dwarfs:~general --
 
 \section{Introduction}
 \label{sec:intro}
-Millisecond pulsars are some of the best clocks known, and as such, are used in a wide variety of physics experiments ranging from test of dark matter to gravitational-wave (GW) detection.
+Millisecond pulsars (MSPs) are some of the best clocks in nature~\citep{bkh+82}, and as such, are used in a wide variety of physics experiments ranging from test of dark matter to gravitational-wave (GW) detection. Due to their formation history, MSPs are often found in binary systems...
+
+When parallax distance measurements are not available, distances to MSPs are estimated via their Dispersion Measure (DM) -- a frequency-dependent delay in the pulse arrival time, due to the radio waves traveling through the ionized interstellar medium of the galaxy, see e.g.~\citep{pulsarAstronomy}. This delay is proportional to the product of the mean electron number density, $\langle n_e \rangle$, and the distance to the pulsar, $D$. One must therefore have a handle on the galactic distribution of electrons in order to compute the pulsar distances. Such models have been proposed by~\cite{cl02,cl03, ymw+17}, among others, however, since the relationship between DM and pulsar distances can only be calibrated by pulsars with known distances (measured by e.g. timing parallax), there are large errors associated with these inferred distance measurements, of the order of 20\%.
+
+Precise pulsar distance measurements are important for a variety of reasons, but in particular for pulsar timing array (PTA) experiments~\cite{abb+17}, which aim to detect nanohertz GWs from both individual inspiralling supermassive black hole binaries (SMBHBs), and the GW background (GWB) from the cosmic merger history of these SMBHBs. In particular, precise pulsar distance measurements can improve the sensitivity of PTAs to continuous GW sources (from individual SMBHB systems)~\citep{zwx+16}  including measuring the evolution of supermassive black hole binaries with pulsar timing arrays~\cite{mgs+12}.
 
 \section{Results}
-We report parallax distance measurements to pulsars .... . Of these,  J1804-2717,  J1955+2908 ,  J2033+1734 had previously unknown parallax distance measurements. With these measurements, and together with the dispersion measure from pulsar timing experiments, we can now report the electron number density in the line-of-sight to these pulsars for the first time,
+Using IPTA DR1~\citep{v+16}, we cross-referenced the MSP locations with objects in GAIA DR1~\citep{gaiaDR1}, updating the pulsar positions to the GAIA epoch, and searching around the pulsar position within 3 arcseconds. 
+
+We report parallax distance measurements to pulsars J0437-4715, J1012+5307, J1024-0719, J1804-2717, J1910+1256, J1955+2908 and J2033+1734, using GAIA DR2 data. Of these, J1804-2717, J1955+2908, J2033+1734 had previously unknown parallax measurements. With these measurements, and together with the dispersion measure from pulsar timing experiments, we can now report the electron number density in the line-of-sight to these pulsars for the first time,
 \beq
 n_e = \frac{DM}{D}\, ,
 \eeq
-where ``DM'' is the dispersion measure, and ``D'' is the distance to the binary pulsar system. These three new measurements can in turn be used to update the galactic electron density model~\cite{cl02,cl03, ymw+17}
+where $DM$ is the dispersion measure, and $D$ is the distance to the object -- in this case the binary pulsar system. These three new measurements can in turn be used to update the galactic electron density model~\cite{cl02,cl03, ymw+17}
 \begin{table*}[h]
 \begin{center}
-\caption{\label{tab:results} Summary of results. *1024 has several issues with its distance measurement which we should discuss. We can also compare distance measurements between the Yao et al. 2017 model and the more famous NE 2001 model. Dispersion measures were reported in \cite{v+16} and references therein.}
-\begin{tabular}{@{\;\;}l@{\;\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}c@{\;}}
+\caption{\label{tab:results} Summary of results. *1024 has several issues with its distance measurement which we should discuss. We can also compare distance measurements between the Yao et al. 2017 model and the more famous NE 2001 model. Dispersion measures were reported in \cite{v+16} and references therein, and pulsar distances were calculated based on this DM via the online tools for NE 2001 and YMW16. $ ^\dagger$We assume the error in the distance from the YMW 16 model is $\pm 20\%$. }
+\begin{tabular}{@{\;\;}l@{\;\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}l@{\;}c@{\;}}
 \hline\hline
-Pulsar 		& DM (cm$^{-3}$pc)		& $D_{DM}$, NE 2001 (pc) & $D_\pi$ (pc) & $D_\pi$, GAIA (pc) & Pulsar $\mu$ (mas/yr) 	& GAIA $\mu$ (mas/yr)& Ref\\
+Pulsar 		& DM (cm$^{-3}$pc)	& $D_{DM}$ (pc) & $D_{DM}$ (pc) & $D_\pi$ (pc) & $D_\pi$ (pc) & $\mu_P$ (mas/yr) 	& $\mu_G$ (mas/yr)& Ref\\
+			&			&NE 2001 	&YMW 16$ ^\dagger$		& Parallax			& GAIA		& Pulsar & GAIA\\
 \hline
-J0437-4715 	& 2.64  	& DM dist 			& $156.3^{+1.3}_{-1.3}$ 	&TBD			 	&	141.29 $\pm$ 0.06 	&  YYYY 	&	\cite{v+16, dvt+08, dcl+16}\\
- J1012+5307 	& 9.02	& DM Dist			& $1150^{+240}_{-240}$	&TBD				&	25.615 $\pm$ 0.010	&		& 	\cite{v+16, dcl+16}\\
- J1024-0719* 	& 6.49	& DM Dist			& $1300^{+600}_{-300}$	&TBD				&	59.72 $\pm$ 0.06	&		& 	\cite{v+16, kkn+16, dcl+16}\\
- J1804-2717 	& 24.67	& 780			& -					&TBD				&	17.3 $\pm$ 2.4		&		& 	\cite{v+16, dcl+16}\\
- J1910+1256 	& 38.06	& DM Dist			& $550^{+460}_{-460}$	&TBD				&	7.37 $\pm$ 0.15	&		&	\cite{v+16, dcl+16}\\
- J1955+2908 	&104.58	& 4640			& -					&TBD				&	4.75 $\pm$ 0.26	&		& 	\cite{v+16, dcl+16}\\
- J2033+1734 	& 25.08	& 2000			& -					&TBD				&	10.8 $\pm$ 0.7		&		& 	\cite{v+16, dcl+16}\\
+ J0437-4715 	& 2.64  & $139^{+33}_{-29}$ & 156.1 &is $156.3^{+1.3}_{-1.3}$ 	& TBD		&	141.29 $\pm$ 0.06 	&  TBD 	&	\cite{v+16, dvt+08, dcl+16}\\
+ J1012+5307 	& 9.02	& $411^{+59}_{-56}$	& 804.5 		& $1150^{+240}_{-240}$		&TBD			&	25.615 $\pm$ 0.010	&		& 	\cite{v+16, dcl+16}\\
+ J1024-0719* 	& 6.49	& $386^{+39}_{-38}$	&	382.3	& $1300^{+600}_{-300}$		&TBD			&	59.72 $\pm$ 0.06	&		& 	\cite{v+16, kkn+16, dcl+16}\\
+ J1804-2717 	& 24.67	&  	$776^{+102}_{-108}$	& 800.5 		& -							&TBD			&	17.3 $\pm$ 2.4		&		& 	\cite{v+16, dcl+16}\\
+ J1910+1256 	& 38.06	& $2327^{+311}_{-317}$	&1496.0 		& $550^{+460}_{-460}$		&TBD			&	7.37 $\pm$ 0.15		&		&	\cite{v+16, dcl+16}\\
+ J1955+2908 	&104.58	&  $4644^{+577}_{-553}$		&	6306.2 	& -							&TBD			&	4.75 $\pm$ 0.26		& 		&	\cite{v+16, dcl+16}\\
+ J2033+1734 	& 25.20	& $2004^{+175}_{-266}$ 	&	1747.7 	& -							&TBD			&	10.8 $\pm$ 0.7		&		& 	\cite{v+16, dcl+16}\\
  \hline \hline
  \end{tabular}
 \end{center}
 \end{table*}
 %
+We discarded white dwarfs associated with J0613-0200 and (J1804-2717???) since the resultant luminosities of the objects associated with these pulsars are too bright to be WDs, with mean photo $g$ magnitudes of 15.47 and 16.19. Indeed, the star in the line of sight to J0613-0200 was previously reported by XX.
+
+
+\begin{figure*}
+\centering
+    \begin{subfigure}
+        \centering
+        \includegraphics[scale=.5]{../figures/J0437_distances.pdf}
+        \caption{}\label{fig:fig_a}
+    \end{subfigure} %
+
+    \begin{subfigure}
+        \centering
+        \includegraphics[scale=.5]{../figures/J1012_distances.pdf}
+        \caption{}\label{fig:fig_b}
+    \end{subfigure} %
+    
+    \begin{subfigure}
+        \centering
+        \includegraphics[scale=.5]{../figures/J1024_distances.pdf}
+        \caption{}\label{fig:fig_c}
+    \end{subfigure}
+\caption{these are placeholders}
+\end{figure*}
 
 \section{Discussion}
 
@@ -105,6 +138,7 @@ The authors thank Yuri Levin, Adrian Price-Whelan, Stephen Feeney (and likely ot
 
 
 \end{document}
+
 
 
 
