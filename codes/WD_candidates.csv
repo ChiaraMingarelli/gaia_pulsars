@@ -1,0 +1,12 @@
+﻿Pulsar,WD mass,mass error ,mass error,reported disance (pc),dist error (pc),Dist technique,Pb dot,error Pb dot,P_orb (days),Angular Distance (GAIA),GAIA source_id,phot_g_mean_mag,ref,Comment
+J0437-4715,0.25,0.02,-0.02,156.3,1.3,,,,,0.970148,4.79E+18,20.255,Durant et a. 2011,
+J0613-0200,0.18,0.15,-0.07,,,,4.80E-14,1.10E-14,1.2,1.966764,3.12E+18,15.472,Fonseca et al. 2016,"the GAIA object is a star in the line of sight to the binaryt, not this WD (could it be part of a triple?)"
+J1012+5307,,,,,,,,,,0.140141,8.52E+17,19.557,,
+J1024-0719,,,,,,,,,,0.379287,3.78E+18,19.042,,
+J1744-1134,,,,,,,,,,1.820741,4.16E+18,20.56,,potential binary
+J1804-2717,,,,,,,,,,2.818577,4.06E+18,16.19,,
+J1843-1113,,,,,,,,,,1.410582,4.11E+18,19.671,,potential binary
+J1910+1256,,,,,,,,,,1.059607,4.31E+18,20.25,,
+J1939+2134,,,,,,,,,,2.065312,1.83E+18,18.598,,potential binary
+J1955+2908,,,,,,,,,,0.165908,2.03E+18,18.489,,
+J2033+1734,,,,,,,,,,2.88821,1.81E+18,17.792,,
